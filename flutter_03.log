@@ -1,0 +1,110 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --no-color run --machine --device-id=3376152f0104 lib/main.dart
+
+## exception
+
+YamlException: Error on line 4, column 1: Duplicate mapping key.
+name: lakes
+^^^^
+
+```
+#0      Loader._loadMapping (package:yaml/src/loader.dart:167)
+#1      Loader._loadNode (package:yaml/src/loader.dart:86)
+#2      Loader._loadDocument (package:yaml/src/loader.dart:62)
+#3      Loader.load (package:yaml/src/loader.dart:54)
+#4      loadYamlDocument (package:yaml/yaml.dart:51)
+#5      loadYamlNode (package:yaml/yaml.dart:42)
+#6      loadYaml (package:yaml/yaml.dart:34)
+#7      _pluginFromPubspec (package:flutter_tools/src/plugins.dart:52)
+#8      _findPlugins.<anonymous closure> (package:flutter_tools/src/plugins.dart:75)
+#9      _HashVMBase&MapMixin&&_LinkedHashMapMixin.forEach (dart:collection-patch/dart:collection/compact_hash.dart:361)
+#10     _findPlugins (package:flutter_tools/src/plugins.dart:73)
+#11     injectPlugins (package:flutter_tools/src/plugins.dart:238)
+#12     FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:62)
+#13     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:278)
+<asynchronous suspension>
+#14     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:228)
+<asynchronous suspension>
+#15     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#16     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:286)
+<asynchronous suspension>
+#17     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#18     new Future.sync (dart:async/future.dart:222)
+#19     CommandRunner.run (package:args/command_runner.dart:109)
+#20     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:166)
+#21     run.<anonymous closure> (package:flutter_tools/runner.dart:90)
+<asynchronous suspension>
+#22     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#23     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#24     _rootRun (dart:async/zone.dart:1126)
+#25     _CustomZone.run (dart:async/zone.dart:1023)
+#26     runZoned (dart:async/zone.dart:1501)
+#27     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#28     run (package:flutter_tools/runner.dart:61)
+<asynchronous suspension>
+#29     main (package:flutter_tools/executable.dart:48)
+<asynchronous suspension>
+#30     main (file:///Users/sumit/flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#31     _startIsolate.<anonymous closure> (dart:isolate-patch/dart:isolate/isolate_patch.dart:277)
+#32     _RawReceivePortImpl._handleMessage (dart:isolate-patch/dart:isolate/isolate_patch.dart:165)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel dev, v0.1.6, on Mac OS X 10.13.3 17D47, locale en-US)
+    • Flutter version 0.1.6 at /Users/sumit/flutter
+    • Framework revision 1f3eb5034f (4 days ago), 2018-02-23 18:35:40 -0800
+    • Engine revision ead227f118
+    • Dart version 2.0.0-dev.28.0.flutter-0b4f01f759
+
+[✓] Android toolchain - develop for Android devices (Android SDK 27.0.2)
+    • Android SDK at /Users/sumit/Library/Android/sdk
+    • Android NDK location not configured (optional; useful for native profiling support)
+    • Platform android-27, build-tools 27.0.2
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[!] iOS toolchain - develop for iOS devices
+    ✗ Xcode installation is incomplete; a full installation is necessary for iOS development.
+      Download at: https://developer.apple.com/xcode/download/
+      Or install Xcode via the App Store.
+      Once installed, run:
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+    ✗ libimobiledevice and ideviceinstaller are not installed. To install, run:
+        brew install --HEAD libimobiledevice
+        brew install ideviceinstaller
+    ✗ ios-deploy not installed. To install:
+        brew install ios-deploy
+    ✗ CocoaPods not installed.
+        CocoaPods is used to retrieve the iOS platform side's plugin code that responds to your plugin usage on the Dart side.
+        Without resolving iOS dependencies with CocoaPods, plugins will not work on iOS.
+        For more info, see https://flutter.io/platform-plugins
+      To install:
+        brew install cocoapods
+        pod setup
+
+[✓] Android Studio
+    • Android Studio at /Applications/Android Studio 3.0 Preview.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b01)
+
+[✓] Android Studio (version 3.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[!] IntelliJ IDEA Ultimate Edition (version 2017.3.4)
+    ✗ Flutter plugin not installed; this adds Flutter specific functionality.
+    ✗ Dart plugin not installed; this adds Dart specific functionality.
+    • For information about installing plugins, see
+      https://flutter.io/intellij-setup/#installing-the-plugins
+
+[✓] Connected devices (1 available)
+    • Redmi Note 4 • 3376152f0104 • android-arm64 • Android 7.0 (API 24)
+
+! Doctor found issues in 2 categories.
+```
